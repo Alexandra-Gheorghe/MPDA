@@ -17,7 +17,7 @@ jobs:
           distribution: 'adopt'
 
       - name: Compile application
-        run: javac -cp .:lib/* src/com/mpda/*.java
+        run: javac -cp .:lib/*:lib/junit-jupiter.jar src/com/mpda/*.java
 
       - name: Run tests
         run: java -cp .:lib/*:src com.mpda.WeatherDataTest
