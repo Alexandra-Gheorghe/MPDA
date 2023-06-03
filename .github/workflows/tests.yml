@@ -14,13 +14,11 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: 11
-          distribution: 'adopt'
 
       - name: Checkout code
         uses: actions/checkout@v2
 
       - name: Compile and run tests
         run: |
-          javac -d .src/com/mpda/*.java
           javac -cp .:lib/* src/com/mpda/*.java
-          java -cp .:src/com/mpda/* org.junit.runner.JUnitCore src.com.mpda.WeatherDataTest
+          java -cp .:lib/*:src com.mpda.WeatherDataTest
