@@ -22,4 +22,5 @@ jobs:
       - name: Compile and run tests
         run: |
           javac -d .src/com/mpda/*.java
+          javac -cp .:lib/* src/com/mpda/*.java
           java -cp .:src/com/mpda/* org.junit.runner.JUnitCore src.com.mpda.WeatherDataTest
