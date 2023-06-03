@@ -22,4 +22,4 @@ jobs:
       - name: Compile and run tests
         run: |
           javac -cp .:lib/* src/com/mpda/*.java
-          java -cp .:lib/*:src com.mpda.WeatherDataTests
+          java -cp .:lib/*:src com.mpda.WeatherDataTest
