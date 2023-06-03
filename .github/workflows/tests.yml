@@ -17,7 +17,7 @@ jobs:
           distribution: 'adopt'
 
       - name: Compile application
-        run: javac -cp .:lib/apiguardian-api-1.1.2.jar:lib/junit-jupiter-api-5.9.2.jar:lib/junit-jujpiter-engine-5.9.2.jar:lib/junit-platform-commons-1.9.2.jar:lib/junit-platform-engine-1.9.2.jar:lib/opentest4j-1.2.0.jar src/com/mpda/*.java
+        run: javac -cp .:.github/lib/apiguardian-api-1.1.2.jar:.github/lib/junit-jupiter-api-5.9.2.jar:.github/lib/junit-jujpiter-engine-5.9.2.jar:.github/lib/junit-platform-commons-1.9.2.jar:.github/lib/junit-platform-engine-1.9.2.jar:.github/lib/opentest4j-1.2.0.jar src/com/mpda/*.java
 
       - name: Run tests
-        run: java -cp .:lib/*:src com.mpda.WeatherDataTest
+        run: java -cp .:.github/lib/*:src com.mpda.WeatherDataTest
