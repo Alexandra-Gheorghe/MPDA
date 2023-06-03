@@ -25,4 +25,4 @@ jobs:
       - name: Compile and run tests
         run: |
           javac -cp .:src/com/mpda/* tests/*.java
-          java -cp .:lib/*:tests org.junit.runner.JUnitCore <YourTestClass>
+          java -cp .:.github/lib/*:tests org.junit.runner.JUnitCore <YourTestClass>
