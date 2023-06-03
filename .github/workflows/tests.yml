@@ -17,10 +17,7 @@ jobs:
           distribution: 'adopt'
 
       - name: Compile application
-        run: javac -d . src/com/mpda/*.java
-
-      - name: Download JUnit Jupiter JAR file
-        run: curl -sL -o junit-jupiter.jar https://repo1.maven.org/maven2/org/junit/jupiter/junit-jupiter/5.8.2/junit-jupiter-5.8.2.jar
+        run: javac -cp .:lib/* src/com/mpda/*.java
 
       - name: Run tests
-        run: java -cp .:junit-jupiter.jar com.mpda.WeatherDataTest
+        run: java -cp .:lib/*:src com.mpda.WeatherDataTest
