@@ -1,23 +1,26 @@
-name: Unit Test
+name: Unit Tests
 
 on: [push, pull_request]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Set up JDK and JUnit Jupiter
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Java
         uses: actions/setup-java@v2
         with:
           java-version: 11
           distribution: 'adopt'
 
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: Compile application
+        run: javac -d . src/com/mpda/*.java
 
-      - name: Compile and run tests
-        run: |
-          javac -cp .:lib/* src/com/mpda/*.java
-          java -cp .:lib/*:src com.mpda.WeatherDataTest
+      - name: Download JUnit Jupiter JAR file
+        run: curl -sL -o junit-jupiter.jar https://repo1.maven.org/maven2/org/junit/jupiter/junit-jupiter/5.8.2/junit-jupiter-5.8.2.jar
 
+      - name: Run tests
+        run: java -cp .:junit-jupiter.jar com.mpda.WeatherDataTest
