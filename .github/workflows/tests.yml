@@ -1,0 +1,22 @@
+name: Unit Tests
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Java
+        uses: actions/setup-java@v2
+        with:
+          java-version: 11
+
+      - name: Compile application
+        run: javac -d . src/com/mpda/*.java
+
+      - name: Run tests
+        run: java -cp .:src/com/mpda/* org.junit.runner.JUnitCore src.com.mpda.WeatherDataTest
