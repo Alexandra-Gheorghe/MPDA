@@ -1,10 +1,7 @@
-name: Java CI
+name: Unit Test
 
 on:
   push:
-    branches:
-      - main
-  pull_request:
     branches:
       - main
 
@@ -24,5 +21,5 @@ jobs:
 
       - name: Compile and run tests
         run: |
-          javac -cp .:src/com/mpda/* tests/*.java
-          java -cp .:.github/lib/*:tests org.junit.runner.JUnitCore WeatherDataTest
+          javac -cp .:lib/* src/com/mpda/*.java
+          java -cp .:lib/*:src.com.mpda org.junit.runner.JUnitCore WeatherDataTest
