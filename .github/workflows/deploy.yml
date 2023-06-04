@@ -20,4 +20,4 @@ jobs:
         run: javac -d . src/com/mpda/CurrentConditionsDisplay.java src/com/mpda/Main.java src/com/mpda/Observer.java src/com/mpda/StatisticsDisplay.java src/com/mpda/Subject.java src/com/mpda/WeatherData.java
 
       - name: Run Application
-        run: java -cp . com.mpda.WeathereData
+        run: java -cp . com.mpda.Main
