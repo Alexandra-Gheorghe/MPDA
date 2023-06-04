@@ -1,0 +1,22 @@
+name: Weather Data App Deployment
+
+on: [push, pull_request]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: '13'
+
+      - name: Compile Application
+        run: javac -d . src/com/mpda/*.java
+
+      - name: Run Application
+        run: java -cp . com.mpda.WeathereData
