@@ -21,6 +21,9 @@ jobs:
 
       - name: Compile application
         run: java -cp .:src com.mpda.Main
+        
+      - name: Build application
+        run: javac -d . src/com/mpda/CurrentConditionsDisplay.java src/com/mpda/Main.java src/com/mpda/Observer.java src/com/mpda/StatisticsDisplay.java src/com/mpda/Subject.java src/com/mpda/WeatherData.java src/com/mpda/WeatherDataTest.java
          
       - name: Run tests
         run: java -cp .:.github/lib/hamcrest-2.2.jar:.github/lib/junit-4.13.2.jar:.github/lib/apiguardian-api-1.1.2.jar:.github/lib/junit-jupiter-api-5.9.2.jar:.github/lib/junit-jupiter-engine-5.9.2.jar:.github/lib/junit-platform-commons-1.9.2.jar:.github/lib/junit-platform-engine-1.9.2.jar:.github/lib/opentest4j-1.2.0.jar:out/production/MPDA-Proiect org.junit.runner.JUnitCore com.mpda.WeatherDataTest
